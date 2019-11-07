@@ -7,7 +7,7 @@ public class Main {
 	//ArrayList<veiculo> veiculos = new ArrayList<veiculo>();
 	public static void main(String[] args) {
 		System.out.println("oi");
-
+		System.out.println("ol");
 	}
 
 }
