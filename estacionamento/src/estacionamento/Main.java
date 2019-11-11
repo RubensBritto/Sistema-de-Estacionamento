@@ -3,8 +3,7 @@ package estacionamento;
 import java.util.ArrayList;
 
 public class Main {
-	//veiculos - carro, -caminhao, -moto
-	//ArrayList<veiculo> veiculos = new ArrayList<veiculo>();
+	ArrayList<Veiculo> veiculos;
 	public static void main(String[] args) {
 		System.out.println("oi");
 		System.out.println("ol");
