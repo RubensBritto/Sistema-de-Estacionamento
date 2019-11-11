@@ -17,6 +17,7 @@ class Estacionamento{
         this.veiculos.add(veiculos);
         this.quantidades[veiculos.getId()] += this.quantidades[];
         this.idsVeiculos[veiculos.getId()] = true;
+        //add valor para realizar o calculo dos valores dos veiculos 
     }
 
     public void removeVeiculos(int id){
@@ -36,6 +37,7 @@ class Estacionamento{
         }
         throw new Exception("Este id não está disponivel.");
         //estudar melhor throw;
+        //fazer o try, catch aqui, com os possiveis erro
         }
     }
     public boolean[] getIdsVeiculos() {
