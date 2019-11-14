@@ -1,12 +1,18 @@
 package estacionamento;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
 	ArrayList<Veiculo> veiculos;
+	public Scanner input = new Scanner(System.in);
 	public static void main(String[] args) {
-		System.out.println("oi");
-		System.out.println("ol");
+		Veiculo carros = new Carro();
+		Veiculo motos = new Moto();
+		Veiculo caminhao = new Caminhao();
+
+		//terminar a instaciação;
+		
 	}
 
 }

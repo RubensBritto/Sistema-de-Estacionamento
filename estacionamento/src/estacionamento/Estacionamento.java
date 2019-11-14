@@ -1,13 +1,13 @@
-import java.util.ArrayList;
 package estacionamento;
+import java.util.ArrayList;
 
-class Estacionamento{
+public class Estacionamento{
     private boolean[] idsVeiculos;
 	private static final int maxQt = 1000;
     private ArrayList<Veiculo> veiculos;
     private int[] quantidades;
     
-    public Estacionamento(){
+    public void Estacionamento(){
         this.veiculos = new ArrayList<Veiculo>()
         this.idsVeiculos = new boolean[maxQt];
         this.quantidades = new int[maxQt];

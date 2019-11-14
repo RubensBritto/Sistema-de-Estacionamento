@@ -11,8 +11,14 @@ public abstract class Veiculo {
 	private String placa;
 	private Double preco;
 
-	public Veiculo (int id, String modelo, Double preco, String tipo, String marca, String cor, String placa){
-
+	public void Veiculo (int id, String modelo,  String marca, String placa, String tipo, String cor, Double preco){
+		this.id = id;
+		this.modelo = modelo;
+		this.marca = marca;
+		this.placa = placa;
+		this.tipo = tipo;
+		this.cor = cor;
+		this.preco = preco;
 	}
 
 	public int getId() {
