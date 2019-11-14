@@ -1,14 +1,16 @@
 package estacionamento;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Estacionamento{
     private boolean[] idsVeiculos;
 	private static final int maxQt = 1000;
     private ArrayList<Veiculo> veiculos;
     private int[] quantidades;
-    
+    private Double preco;
+    //ver o array quantidade
     public void Estacionamento(){
-        this.veiculos = new ArrayList<Veiculo>()
+        this.veiculos = new ArrayList<Veiculo>();
         this.idsVeiculos = new boolean[maxQt];
         this.quantidades = new int[maxQt];
     }
@@ -17,7 +19,10 @@ public class Estacionamento{
         this.veiculos.add(veiculos);
         this.quantidades[veiculos.getId()] += this.quantidades[];
         this.idsVeiculos[veiculos.getId()] = true;
-        //add valor para realizar o calculo dos valores dos veiculos 
+        if("Carro".equalsIgnoreCase(veiculos.getNome(5))){
+            //fazer os ifs para add automaticamente o valor dos veiculos
+
+       }
     }
 
     public void removeVeiculos(int id){
@@ -66,6 +71,14 @@ public class Estacionamento{
 
     public void setQuantidades(int[] quantidades) {
         this.quantidades = quantidades;
+    }
+
+    public Double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(Double preco) {
+        this.preco = preco;
     }
 
 }
