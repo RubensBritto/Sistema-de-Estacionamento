@@ -9,6 +9,11 @@ public class Preco{
     private Double precoCaminhao;
     private Double horaAdicional;
     private int escolha;
+    private int qtdCarro;
+    private int qtdMoto;
+    private int qtdCaminhao;
+
+
 
     public void addPreco(){
         System.out.println("Digite o valor do preço dos Caros");
@@ -92,6 +97,30 @@ public class Preco{
 
     public void setHoraAdicional(Double horaAdicional) {
         this.horaAdicional = horaAdicional;
+    }
+
+    public int getQtdCarro() {
+        return qtdCarro;
+    }
+
+    public void setQtdCarro(int qtdCarro) {
+        this.qtdCarro = qtdCarro;
+    }
+
+    public int getQtdMoto() {
+        return qtdMoto;
+    }
+
+    public void setQtdMoto(int qtdMoto) {
+        this.qtdMoto = qtdMoto;
+    }
+
+    public int getQtdCaminhao() {
+        return qtdCaminhao;
+    }
+
+    public void setQtdCaminhao(int qtdCaminhao) {
+        this.qtdCaminhao = qtdCaminhao;
     }
 
 }

@@ -4,14 +4,14 @@ package estacionamento;
 public abstract class Veiculo {
 
 	private int id;
-	private String tipo;
 	private String modelo;
 	private String marca;
-	private String cor;
 	private String placa;
+	private String tipo;
+	private String cor;
 	private Double preco;
-
-	public void Veiculo (int id, String modelo,  String marca, String placa, String tipo, String cor, Double preco){
+			
+	public Veiculo (int id, String modelo, String marca, String placa, String tipo, String cor, Double preco) {
 		this.id = id;
 		this.modelo = modelo;
 		this.marca = marca;
@@ -20,7 +20,7 @@ public abstract class Veiculo {
 		this.cor = cor;
 		this.preco = preco;
 	}
-
+	
 	public int getId() {
 		return id;
 	}
