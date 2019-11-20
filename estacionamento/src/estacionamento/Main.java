@@ -8,12 +8,13 @@ public class Main {
 	ArrayList<Veiculo> veiculos;
 	public Scanner input = new Scanner(System.in);
 	public static void main(String[] args) {
-		Veiculo carros = new Carro();
-		Veiculo motos = new Moto();
-		Veiculo caminhao = new Caminhao();
-		//Date data = new Date();
+		//Veiculo carros = new Carro();
+		//Veiculo motos = new Moto();
+		//Veiculo caminhao = new Caminhao();
+		Date data = new Date();
+
 		// Instanciancao da classe date, posso usar o 
-		System.out.println(data.get());
+		System.out.println(data.toLocaleString());
 		//getter pega o valor
 		// setter inserir o valor
 

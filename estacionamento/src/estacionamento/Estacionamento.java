@@ -9,6 +9,7 @@ public class Estacionamento{
     private int[] quantidades;
     private Double preco;
     Carro ver = new Veiculo();
+    Preco price = new price();
     //ver o array quantidade
     public Estacionamento(){
         this.idsVeiculos = new boolean[maxQt];
@@ -19,11 +20,20 @@ public class Estacionamento{
         veiculos.add(v);
         this.quantidades[v.getId()] += this.quantidades[];
         this.idsVeiculos[v.getId()] = true;
-
-        if("Carro".equalsIgnoreCase(v.getNome(5))){
-            //fazer os ifs para add automaticamente o valor dos veiculos
-
-       }
+        try{
+            if("Carro".equalsIgnoreCase(v.getTipo())){
+                v.setPreco = price.getPrecoCarro();
+                //fazer os ifs para add automaticamente o valor dos veiculos
+            }
+            else if("Moto".equalsIgnoreCase(v.getTipo())){
+                v.setPreco = price.getprecoMoto();
+            }
+            else if("Caminhao".equalsIgnoreCase(v.getTipo())){
+                v.setPreco = price.getPrecoCaminhao();
+            }
+        }catch(Ex e){
+                //colocar excencao para nao digitar numeros
+        }
     }
 
     public void removeVeiculos(final int id) {
