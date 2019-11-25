@@ -82,4 +82,7 @@ public abstract class Veiculo {
 		// um valor no estacionamento;
 	}
 
+	public Veiculo() {
+	}
+
 }

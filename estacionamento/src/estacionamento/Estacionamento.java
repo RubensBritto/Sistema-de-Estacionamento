@@ -6,48 +6,71 @@ public class Estacionamento{
     private boolean[] idsVeiculos;
 	private static final int maxQt = 1000;
     private static ArrayList<Veiculo> veiculos = new ArrayList<>();
-    private int[] quantidades;
     private Double preco;
-    Carro ver = new Veiculo();
-    //ver o array quantidade
+    private int qtdCarro;
+    private int qtdCaminhao;
+    private int qtdMoto;
+    Veiculo ver = new Carro();
+    Preco price = new Preco();
     public Estacionamento(){
         this.idsVeiculos = new boolean[maxQt];
-        this.quantidades = new int[maxQt];
     }
 
-    public void addVeiculos(final Veiculo v, final int quatidades){
+    public void addVeiculos(Veiculo v, int qtdCarro, int qtdCaminhao, int qtdMoto){
+        getFreeId();
+        //passar o parametro
         veiculos.add(v);
-        this.quantidades[v.getId()] += this.quantidades[];
         this.idsVeiculos[v.getId()] = true;
-
-        if("Carro".equalsIgnoreCase(v.getNome(5))){
-            //fazer os ifs para add automaticamente o valor dos veiculos
-
+        
+        if("Carro".equalsIgnoreCase(ver.getModelo())){
+            price.setQtdCarro(qtdCarro +=1);
+            ver.setPreco(price.getPrecoCarro());
        }
-    }
-
+       if("Caminhao".equalsIgnoreCase(ver.getModelo())){
+            price.setQtdCaminhao(qtdCaminhao +=1);
+            ver.setPreco(price.getPrecoCaminhao());
+       }
+       if("Moto".equalsIgnoreCase(ver.getModelo())){
+            price.setQtdMoto(qtdMoto +=1);
+            ver.setPreco(price.getPrecoMoto());
+       }
+       else{
+            System.out.println("Tipo invalido");
+            addVeiculos(v, qtdCarro, qtdCaminhao, qtdMoto);
+       }
+       
+   }
     public void removeVeiculos(final int id) {
         for (Veiculo v : veiculos) {
             if (v.getId() == id) {
-                veiculos.remove(v);
                 this.idsVeiculos[id] = false;
-                this.quantidades[id] -= 1;
+                veiculos.remove(v);
+                if("Carro".equalsIgnoreCase(ver.getModelo())){
+                    price.setQtdCarro(qtdCarro -=1);
+               }
+               if("Caminhao".equalsIgnoreCase(ver.getModelo())){
+                    price.setQtdCaminhao(qtdCaminhao -=1);
+               }
+               if("Moto".equalsIgnoreCase(ver.getModelo())){
+                    price.setQtdMoto(qtdMoto -=1);
+               }
             }
         }
 
     }
 
     public int getFreeId() {
+        int aux = 0;
         for (int i = 0; i < this.idsVeiculos.length; i++) {
-            if (!this.idsVeiculos[i])
-                return i;
+            if (this.idsVeiculos[i] != false){
+                aux = i;
+            }
         }
-        throw new Exception("Este id não está disponivel.");
+        return aux;
+    }
+        //throw new Exception("Este id não está disponivel.");
         // estudar melhor throw;
         // fazer o try, catch aqui, com os possiveis erro
-    }
-
-    }
 
     public boolean[] getIdsVeiculos() {
         return idsVeiculos;
@@ -65,14 +88,6 @@ public class Estacionamento{
         return veiculos;
     }
 
-    public int[] getQuantidades() {
-        return quantidades;
-    }
-
-    public void setQuantidades(final int[] quantidades) {
-        this.quantidades = quantidades;
-    }
-
     public Double getPreco() {
         return preco;
     }
@@ -83,6 +98,30 @@ public class Estacionamento{
 
     public static void setVeiculos(final ArrayList<Veiculo> veiculos) {
         Estacionamento.veiculos = veiculos;
+    }
+
+    public int getQtdCarro() {
+        return qtdCarro;
+    }
+
+    public void setQtdCarro(int qtdCarro) {
+        this.qtdCarro = qtdCarro;
+    }
+
+    public int getQtdCaminhao() {
+        return qtdCaminhao;
+    }
+
+    public void setQtdCaminhao(int qtdCaminhao) {
+        this.qtdCaminhao = qtdCaminhao;
+    }
+
+    public int getQtdMoto() {
+        return qtdMoto;
+    }
+
+    public void setQtdMoto(int qtdMoto) {
+        this.qtdMoto = qtdMoto;
     }
 
 }

@@ -11,12 +11,11 @@ public class Main {
 		Veiculo carros = new Carro();
 		Veiculo motos = new Moto();
 		Veiculo caminhao = new Caminhao();
-		//Date data = new Date();
+		Date data = new Date();
 		// Instanciancao da classe date, posso usar o 
-		System.out.println(data.get());
+		System.out.println(data.getHours());
 		//getter pega o valor
 		// setter inserir o valor
-
 		//terminar a instaciação;
 		
 	}

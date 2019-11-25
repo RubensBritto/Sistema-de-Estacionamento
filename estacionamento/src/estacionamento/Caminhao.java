@@ -10,6 +10,9 @@ public class Caminhao extends Veiculo {
 		this.carga = carga;
 	}
 		
+	public Caminhao() {
+	}
+
 	//Override
 	public void Veiculo(int id, String modelo,  String marca, String placa, String tipo, String cor, Double preco, Double carga){
 	}

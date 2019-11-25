@@ -9,6 +9,9 @@ public class Carro extends Veiculo{
 	this.tipoCarro = tipoCarro;
 }
 	
+	public Carro() {
+	}
+
 	//Override
 	public void Veiculo(int id, String modelo,  String marca, String placa, String tipo, String cor, Double preco, String tipoCarro){
 	}

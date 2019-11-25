@@ -10,6 +10,9 @@ public class Moto extends Veiculo {
 		this.cilindrada = cilindrada;
 	}
 	
+	public Moto() {
+	}
+
 	//Override
 	public void Veiculo(int id, String modelo,  String marca, String placa, String tipo, String cor, Double preco, Double cilindrada){
 	}
