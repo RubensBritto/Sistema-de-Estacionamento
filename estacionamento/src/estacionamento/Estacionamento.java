@@ -12,6 +12,7 @@ public class Estacionamento{
     private int qtdMoto;
     Veiculo ver = new Carro();
     Preco price = new Preco();
+
     public Estacionamento(){
         this.idsVeiculos = new boolean[maxQt];
     }
@@ -39,7 +40,22 @@ public class Estacionamento{
             addVeiculos(v, qtdCarro, qtdCaminhao, qtdMoto);
        }
        
-   }
+
+        try{
+            if("Carro".equalsIgnoreCase(v.getTipo())){
+                v.setPreco = price.getPrecoCarro();
+            }
+            else if("Moto".equalsIgnoreCase(v.getTipo())){
+                v.setPreco = price.getprecoMoto();
+            }
+            else if("Caminhao".equalsIgnoreCase(v.getTipo())){
+                v.setPreco = price.getPrecoCaminhao();
+            }
+        }catch(Ex e){
+                //colocar excencao para nao digitar numeros
+        }
+    }
+
     public void removeVeiculos(final int id) {
         for (Veiculo v : veiculos) {
             if (v.getId() == id) {

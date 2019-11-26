@@ -2,6 +2,7 @@ package estacionamento;
 
 
 public abstract class Veiculo {
+	Date data = new Date();
 
 	private int id;
 	private String modelo;
@@ -10,8 +11,9 @@ public abstract class Veiculo {
 	private String tipo;
 	private String cor;
 	private Double preco;
+	private Date dataVeiculo;
 			
-	public Veiculo (int id, String modelo, String marca, String placa, String tipo, String cor, Double preco) {
+	public Veiculo (int id, String modelo, String marca, String placa, String tipo, String cor, Double preco, Date dataVeiculo) {
 		this.id = id;
 		this.modelo = modelo;
 		this.marca = marca;
@@ -19,6 +21,7 @@ public abstract class Veiculo {
 		this.tipo = tipo;
 		this.cor = cor;
 		this.preco = preco;
+		this.dataVeiculo = data.toLocaleString();
 	}
 	
 	public int getId() {
@@ -82,7 +85,16 @@ public abstract class Veiculo {
 		// um valor no estacionamento;
 	}
 
+<<<<<<< HEAD
 	public Veiculo() {
+=======
+	public Date getDataVeiculo() {
+		return dataVeiculo;
+	}
+
+	public void setDataVeiculo(Date dataVeiculo) {
+		this.dataVeiculo = dataVeiculo;
+>>>>>>> 68c9b5fa64813f773b23afa8c5074c1532e903a6
 	}
 
 }

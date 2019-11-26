@@ -30,7 +30,7 @@ public class Preco{
         try {
             setEscolha(input.nextInt());       
         } catch (NumberFormatException e) {
-            System.out.println("Forma");
+            System.out.println("O campo espera um número");
             alterarPreco();       
         }
         if(getEscolha() == 1){
