@@ -26,8 +26,14 @@ public class Adm{
     private int qtdTotal;
     private static final int maxQt = 1000;
     private boolean [] postionID = new boolean [maxQt];
+
+    public void PreencherPosition(postionID[]){
+        for(int i = 0; i < this.postionID.length; i++)
+        this.postionID[i] = false;
+    }
      
     public Adm(){
+        PreencherPosition();
     }
     
     public void criarVeiculo(){        
@@ -40,6 +46,8 @@ public class Adm{
             postionID[id] = true;
             System.out.println("---------Digite o Modelo do veiculo------------");
             String modelo = input.nextLine();
+            System.out.println("---------Digite a Marca do veiculo------------");
+            String marca = input.nextLine();
             System.out.println("---------Digite a Placa do veiculo------------");
             System.out.println(">>>>>>>>> No formato (AAA-9999)<<<<<<<<<<<<<<<<");
             String placa = input.nextLine();
@@ -63,7 +71,7 @@ public class Adm{
                 System.out.println("---------Digite o tipo do carro------------");
                 tipoCarro = input.nextLine();;
 
-                veiculos.add(new Carro(id, modelo, marca, placa, tipo, cor, preco, dataVeiculo,tipoCarro));
+                veiculos.add(new Carro(id, modelo, marca, placa, tipo, cor, preco, null,tipoCarro));
                 qtdCarro +=1;
             }
             else if("Caminhao".equalsIgnoreCase(tipo)){
@@ -71,7 +79,7 @@ public class Adm{
                 Double carga;
                 System.out.println("---------Digite o tipo a Carga que o Caminhão suportar------------");
                 carga = input.nextDouble();
-                veiculos.add(new Caminhao(id, modelo, marca, placa, tipo, cor, preco, dataVeiculo,carga));
+                veiculos.add(new Caminhao(id, modelo, marca, placa, tipo, cor, preco,null,carga));
                 qtdCaminhao +=1;
             }
             else if("Moto".equalsIgnoreCase(tipo)){
@@ -79,7 +87,7 @@ public class Adm{
                 Double cilindrada;
                 cilindrada = input.nextDouble();
                 System.out.println("---------Digite a cilindrada da moto------------");
-                veiculos.add(new Moto(id, modelo, marca, placa, tipo, cor, preco, dataVeiculo,cilindrada));
+                veiculos.add(new Moto(id, modelo, marca, placa, tipo, cor, preco, null,cilindrada));
                 qtdMoto +=1;
             }
             qtdTotal = qtdCaminhao+qtdCarro+qtdMoto;
