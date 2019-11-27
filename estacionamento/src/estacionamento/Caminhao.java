@@ -3,18 +3,18 @@ package estacionamento;
 public class Caminhao extends Veiculo {
 	
 	private Double carga;
-
+	
 	public Caminhao(int id, String modelo, String marca, String placa, String tipo, String cor, Double preco,
-			Double carga) {
-		super(id, modelo, marca, placa, tipo, cor, preco);
+			String dataVeiculo, Double carga) {
+		super(id, modelo, marca, placa, tipo, cor, preco, dataVeiculo);
 		this.carga = carga;
 	}
-		
-	public Caminhao() {
-	}
 
+	public Caminhao(){
+		
+	}
 	//Override
-	public void Veiculo(int id, String modelo,  String marca, String placa, String tipo, String cor, Double preco, Date dataVeiculo,Double carga){
+	public void Veiculo(int id, String modelo,  String marca, String placa, String tipo, String cor, Double preco, String dataVeiculo,Double carga){
 	}
 
 	public int valoresestacionamento(){
@@ -29,7 +29,4 @@ public class Caminhao extends Veiculo {
 		this.carga = carga;
 	}
 
-	public Caminhao(Double carga) {
-		this.carga = carga;
-	}
 }

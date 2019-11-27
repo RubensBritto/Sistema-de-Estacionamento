@@ -26,7 +26,11 @@ public class Preco{
         setHoraAdicional(input.nextDouble());      
     }
     public void alterarPreco(){
-        System.out.println("Digite 1- Para alterar o valor dos carros\n2- Para altera o valor das motos\n3- Para alterar o valor dos Caminhões\n 4- Para alterar o valor das horas adicionais");
+        System.out.println("Digite a opção desejada\n"+
+                "[1]- Para alterar o valor dos carros\n"+
+                "[2]- Para altera o valor das motos\n"+
+                "[3]- Para alterar o valor dos Caminhões\n"+
+                "[4]- Para alterar o valor das horas adicionais");
         try {
             setEscolha(input.nextInt());       
         } catch (NumberFormatException e) {

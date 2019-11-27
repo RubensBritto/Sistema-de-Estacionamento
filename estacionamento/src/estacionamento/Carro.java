@@ -1,23 +1,25 @@
 package estacionamento;
+import java.util.Date;
+import java.util.Scanner;
 
 public class Carro extends Veiculo{
+	public Scanner input; 
 	private String tipoCarro;
-<<<<<<< HEAD
+
 	
 	public Carro(int id, String modelo, String marca, String placa, String tipo, String cor, Double preco,
-			String tipoCarro) {
-	super(id, modelo, marca, placa, tipo, cor, preco);
-	this.tipoCarro = tipoCarro;
-}
-	
-	public Carro() {
+			String dataVeiculo, String tipoCarro) {
+		super(id, modelo, marca, placa, tipo, cor, preco, dataVeiculo);
+		this.tipoCarro = tipoCarro;
 	}
 
-=======
-		
->>>>>>> 68c9b5fa64813f773b23afa8c5074c1532e903a6
+	public Carro(){
+		input = new Scanner(System.in);
+	}
+
+
 	//Override
-	public void Veiculo(int id, String modelo,  String marca, String placa, String tipo, String cor, Double preco, Date dataVeiculo,String tipoCarro){
+	public void Veiculo(int id, String modelo,  String marca, String placa, String tipo, String cor, Double preco, String dataVeiculo,String tipoCarro){
 	}
 	
 	public String getTipoCarro() {
@@ -30,9 +32,4 @@ public class Carro extends Veiculo{
 	public int valoresestacionamento(){
 		return 0;
 	}
-
-	public Carro(String tipoCarro) {
-		this.tipoCarro = tipoCarro;
-	}
-
 }

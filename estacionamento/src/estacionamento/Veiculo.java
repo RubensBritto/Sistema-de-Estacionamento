@@ -1,8 +1,9 @@
 package estacionamento;
+import java.util.Date;
 
 
 public abstract class Veiculo {
-	Date data = new Date();
+	Date data;
 
 	private int id;
 	private String modelo;
@@ -11,9 +12,9 @@ public abstract class Veiculo {
 	private String tipo;
 	private String cor;
 	private Double preco;
-	private Date dataVeiculo;
+	private String dataVeiculo;
 			
-	public Veiculo (int id, String modelo, String marca, String placa, String tipo, String cor, Double preco, Date dataVeiculo) {
+	public Veiculo (int id, String modelo, String marca, String placa, String tipo, String cor, Double preco, String dataVeiculo) {
 		this.id = id;
 		this.modelo = modelo;
 		this.marca = marca;
@@ -21,7 +22,11 @@ public abstract class Veiculo {
 		this.tipo = tipo;
 		this.cor = cor;
 		this.preco = preco;
-		this.dataVeiculo = data.toLocaleString();
+		//this.dataVeiculo = data.toLocaleString();
+	}
+	public Veiculo(){
+		data = new Date();
+		data.getTime();
 	}
 	
 	public int getId() {
@@ -79,22 +84,12 @@ public abstract class Veiculo {
 	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
-	public int valoresestacionamento() {
-		return 0;
-		// metodo faz polimofismo de overeding, onde cada tipo de veiculo vai possuir
-		// um valor no estacionamento;
-	}
 
-<<<<<<< HEAD
-	public Veiculo() {
-=======
-	public Date getDataVeiculo() {
+	public String getDataVeiculo() {
 		return dataVeiculo;
 	}
 
-	public void setDataVeiculo(Date dataVeiculo) {
+	public void setDataVeiculo(String dataVeiculo) {
 		this.dataVeiculo = dataVeiculo;
->>>>>>> 68c9b5fa64813f773b23afa8c5074c1532e903a6
 	}
-
 }
