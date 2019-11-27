@@ -1,7 +1,9 @@
 package estacionamento;
+import java.util.Scanner;
+
 
 public class Busca{
-
+    Scanner input = new Scanner(System.in);
     public int getIdVeiculos(int totalVeiculos, ArrayList<Veiculo>veiculos){
         System.out.println("---------------------Digite o ID do veiculo--------------------");
         int id= input.nextInt();
