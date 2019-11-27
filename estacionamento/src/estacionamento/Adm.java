@@ -5,7 +5,11 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import javax.swing.text.Position;
+
 import estacionamento.Validador;
+import sun.security.util.Length;
 import estacionamento.Preco;
 import estacionamento.Busca;
 
@@ -41,13 +45,11 @@ public class Adm{
         
 
         try{
-            System.out.println("---------Digite o ID do veiculo------------");
-            id = input.nextInt();
-            int aux = getFreeId(id);
+            int aux = getFreeId();
             if(aux < 0){
                 throw new Exception("ID ocupado");
-                System.out(0);
             }
+            id = aux;
             postionID[id] = true;
             System.out.println("---------Digite o Modelo do veiculo------------");
             modelo = input.nextLine();
@@ -99,11 +101,14 @@ public class Adm{
         }
    
 }
-    public int getFreeId(int id) {
-        if (postionID[id] != true)
-            return id;
-        else
-            return -1;
+    public int getFreeId() {
+        for(int i= 0; i < postionID.length; i++){
+            if (this.postionID[i] != true)
+                return i;
+            else
+                return -1;
+        }
+        
     }
     public void removerVeiculo(){
         int id = input.nextInt();
