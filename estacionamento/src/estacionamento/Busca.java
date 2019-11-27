@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Busca{
     Scanner input = new Scanner(System.in);
-    public int getIdVeiculos(int totalVeiculos, Veiculos veiculos){
+    public int getIdVeiculos(int totalVeiculos, Veiculos veiculo){
         System.out.println("---------------------Digite o ID do veiculo--------------------");
         int id= input.nextInt();
         for(int aux = 0; aux < totalVeiculos; aux++){

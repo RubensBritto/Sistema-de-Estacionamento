@@ -5,11 +5,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
 import javax.swing.text.Position;
-
 import estacionamento.Validador;
-import sun.security.util.Length;
 import estacionamento.Preco;
 import estacionamento.Busca;
 
@@ -33,29 +30,19 @@ public class Adm{
     public Adm(){
     }
     
-    public void criarVeiculo(){
-        int id;
-        String modelo;
-        String marca;
-        String placa;
-        String tipo;
-        String cor;
-        Double preco;
-        String dataVeiculo;
-        
-
+    public void criarVeiculo(){        
         try{
             int aux = getFreeId();
             if(aux < 0){
                 throw new Exception("ID ocupado");
             }
-            id = aux;
+            int id = aux;
             postionID[id] = true;
             System.out.println("---------Digite o Modelo do veiculo------------");
-            modelo = input.nextLine();
+            String modelo = input.nextLine();
             System.out.println("---------Digite a Placa do veiculo------------");
             System.out.println(">>>>>>>>> No formato (AAA-9999)<<<<<<<<<<<<<<<<");
-            placa = input.nextLine();
+            String placa = input.nextLine();
             boolean retorno = validador.validador(placa);
             if(retorno == true){
                 System.out.println("-----------------------Placa aceita--------------------");
@@ -65,13 +52,13 @@ public class Adm{
                 criarVeiculo();
             }
             System.out.println("---------Digite a Cor do veiculo------------");
-            cor = input.nextLine();
+            String cor = input.nextLine();
             System.out.println("---------Digite o tipo do veiculo------------");
-            tipo = input.nextLine();
-            //dataVeiculo = sdf.format(new Date());
+            String tipo = input.nextLine();
+            //String dataVeiculo = sdf.format(new Date());
             
             if("Carro".equalsIgnoreCase(tipo)){
-                preco = price.getPrecoCarro();
+                Double preco = price.getPrecoCarro();
                 String tipoCarro;
                 System.out.println("---------Digite o tipo do carro------------");
                 tipoCarro = input.nextLine();;
@@ -80,7 +67,7 @@ public class Adm{
                 qtdCarro +=1;
             }
             else if("Caminhao".equalsIgnoreCase(tipo)){
-                preco = price.getPrecoCaminhao();
+                Double preco = price.getPrecoCaminhao();
                 Double carga;
                 System.out.println("---------Digite o tipo a Carga que o Caminhão suportar------------");
                 carga = input.nextDouble();
@@ -88,7 +75,7 @@ public class Adm{
                 qtdCaminhao +=1;
             }
             else if("Moto".equalsIgnoreCase(tipo)){
-                preco = price.getPrecoMoto();
+                Double preco = price.getPrecoMoto();
                 Double cilindrada;
                 cilindrada = input.nextDouble();
                 System.out.println("---------Digite a cilindrada da moto------------");
