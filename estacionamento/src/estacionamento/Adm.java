@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Adminstrador{
+public class Adm{
     ArrayList<Veiculo> veiculos = new ArrayList<>();
     private Scanner input = new Scanner(System.in);
     Validador validador = new Validador();
@@ -20,11 +20,10 @@ public class Adminstrador{
     private int qtdCaminhao;
     private int qtdMoto;
     private int qtdTotal;
-    private int lastID = 0;
     private static final int maxQt = 1000;
     private boolean [] postionID = new boolean [maxQt];
      
-    public Adminstrador(){
+    public Adm(){
     }
     
     public void criarVeiculo(){
@@ -36,6 +35,8 @@ public class Adminstrador{
         String cor;
         Double preco;
         String dataVeiculo;
+        
+
         try{
             System.out.println("---------Digite o ID do veiculo------------");
             id = input.nextInt();
@@ -43,6 +44,7 @@ public class Adminstrador{
             if(aux < 0){
                 throw new Exception("ID ocupado");
             }
+            postionID[id] = true;
             System.out.println("---------Digite o Modelo do veiculo------------");
             modelo = input.nextLine();
             System.out.println("---------Digite a Placa do veiculo------------");
@@ -68,15 +70,15 @@ public class Adminstrador{
                 System.out.println("---------Digite o tipo do carro------------");
                 tipoVeiculo = input.nextLine();;
 
-                veiculos.add(new Veiculo(lastID, modelo, marca, placa, tipo, cor, preco, dataVeiculo,tipoVeiculo));
+                veiculos.add(new Carro(id, modelo, marca, placa, tipo, cor, preco, dataVeiculo,tipoVeiculo));
                 qtdCarro +=1;
             }
             else if("Caminhao".equalsIgnoreCase(tipo)){
                 preco = price.getPrecoCaminhao();
                 Double carga;
                 System.out.println("---------Digite o tipo a Carga que o Caminhão suportar------------");
-                cargaCaminhao = input.nextDouble();;
-                veiculos.add(new Veiculo(lastID, modelo, marca, placa, tipo, cor, preco, dataVeiculo,carga));
+                carga = input.nextDouble();
+                veiculos.add(new Caminhao(id, modelo, marca, placa, tipo, cor, preco, dataVeiculo,carga));
                 qtdCaminhao +=1;
             }
             else if("Moto".equalsIgnoreCase(tipo)){
@@ -84,11 +86,9 @@ public class Adminstrador{
                 Double cilindrada;
                 cilindrada = input.nextDouble();
                 System.out.println("---------Digite a cilindrada da moto------------");
-                veiculos.add(new Veiculo(id, modelo, marca, placa, tipo, cor, preco, dataVeiculo,cilindrada));
+                veiculos.add(new Moto(id, modelo, marca, placa, tipo, cor, preco, dataVeiculo,cilindrada));
                 qtdMoto +=1;
             }
-            lastID += 1;
-            postionID[lastID] = true;
             qtdTotal = qtdCaminhao+qtdCarro+qtdMoto;
         }catch(InputMismatchException e){
             System.out.println("Tipo invalido");

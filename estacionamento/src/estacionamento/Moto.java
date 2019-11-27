@@ -13,10 +13,6 @@ public class Moto extends Veiculo {
 	public Moto(){
 		
 	}
-	//Override
-	public void Veiculo(int id, String modelo,  String marca, String placa, String tipo, String cor, Double preco, String dataVeiculo ,Double cilindrada){
-	}
-	
 	public double getCilindrada() {
 		return cilindrada;
 	}
@@ -27,7 +23,5 @@ public class Moto extends Veiculo {
 	public int valoresestacionamento(){
 		return 0;
 	}
-
-
 
 }

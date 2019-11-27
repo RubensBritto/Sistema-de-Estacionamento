@@ -3,7 +3,6 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class Carro extends Veiculo{
-	public Scanner input; 
 	private String tipoCarro;
 
 	
@@ -12,14 +11,8 @@ public class Carro extends Veiculo{
 		super(id, modelo, marca, placa, tipo, cor, preco, dataVeiculo);
 		this.tipoCarro = tipoCarro;
 	}
-
 	public Carro(){
-		input = new Scanner(System.in);
-	}
-
-
-	//Override
-	public void Veiculo(int id, String modelo,  String marca, String placa, String tipo, String cor, Double preco, String dataVeiculo,String tipoCarro){
+		
 	}
 	
 	public String getTipoCarro() {

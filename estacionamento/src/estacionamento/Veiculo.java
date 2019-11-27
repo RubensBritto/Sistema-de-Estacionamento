@@ -3,7 +3,7 @@ import java.util.Date;
 
 
 public abstract class Veiculo {
-	Date data;
+	Date data = new Date();
 
 	private int id;
 	private String modelo;
@@ -13,7 +13,7 @@ public abstract class Veiculo {
 	private String cor;
 	private Double preco;
 	private String dataVeiculo;
-			
+	
 	public Veiculo (int id, String modelo, String marca, String placa, String tipo, String cor, Double preco, String dataVeiculo) {
 		this.id = id;
 		this.modelo = modelo;
@@ -24,8 +24,7 @@ public abstract class Veiculo {
 		this.preco = preco;
 		//this.dataVeiculo = data.toLocaleString();
 	}
-	public Veiculo(){
-		data = new Date();
+	public Veiculo(){	
 		data.getTime();
 	}
 	
