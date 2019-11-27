@@ -5,6 +5,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import estacionamento.Validador;
+import estacionamento.Preco;
+import estacionamento.Busca;
 
 public class Adm{
     ArrayList<Veiculo> veiculos = new ArrayList<>();
@@ -43,6 +46,7 @@ public class Adm{
             int aux = getFreeId(id);
             if(aux < 0){
                 throw new Exception("ID ocupado");
+                System.out(0);
             }
             postionID[id] = true;
             System.out.println("---------Digite o Modelo do veiculo------------");
@@ -62,15 +66,15 @@ public class Adm{
             cor = input.nextLine();
             System.out.println("---------Digite o tipo do veiculo------------");
             tipo = input.nextLine();
-            dataVeiculo = sdf.format(new Date());
+            //dataVeiculo = sdf.format(new Date());
             
             if("Carro".equalsIgnoreCase(tipo)){
                 preco = price.getPrecoCarro();
-                String tipoVeiculo;
+                String tipoCarro;
                 System.out.println("---------Digite o tipo do carro------------");
-                tipoVeiculo = input.nextLine();;
+                tipoCarro = input.nextLine();;
 
-                veiculos.add(new Carro(id, modelo, marca, placa, tipo, cor, preco, dataVeiculo,tipoVeiculo));
+                veiculos.add(new Carro(id, modelo, marca, placa, tipo, cor, preco, dataVeiculo,tipoCarro));
                 qtdCarro +=1;
             }
             else if("Caminhao".equalsIgnoreCase(tipo)){

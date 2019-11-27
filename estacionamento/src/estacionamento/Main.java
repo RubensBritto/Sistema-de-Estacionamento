@@ -5,7 +5,11 @@ import java.util.Date;
 import java.util.Scanner;
 import java.util.Calendar;
 import java.text.SimpleDateFormat;
-import estacionamento.*;
+import estacionamento.Adm;
+import estacionamento.Caminhao;
+import estacionamento.Carro;
+import estacionamento.Moto;
+import estacionamento.Veiculo;
 
 public class Main {
 	ArrayList<Veiculo> veiculos;

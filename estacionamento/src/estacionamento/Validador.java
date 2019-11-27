@@ -1,7 +1,7 @@
+package estacionamento;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import estacionamento.Veiculo;
 
 public class Validador{
