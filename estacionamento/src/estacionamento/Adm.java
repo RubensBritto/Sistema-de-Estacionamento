@@ -3,12 +3,13 @@ package estacionamento;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.InputMismatchException;
+import javax.naming.directory.InvalidAttributeValueException;
 import java.util.Scanner;
 import javax.swing.text.Position;
 import estacionamento.Validador;
 import estacionamento.Preco;
 import estacionamento.Busca;
+import estacionamento.Relatorio;
 
 public class Adm{
     ArrayList<Veiculo> veiculos = new ArrayList<>();
@@ -27,7 +28,7 @@ public class Adm{
     private static final int maxQt = 1000;
     private boolean [] postionID = new boolean [maxQt];
 
-    public void PreencherPosition(postionID[]){
+    private void PreencherPosition(){
         for(int i = 0; i < this.postionID.length; i++)
         this.postionID[i] = false;
     }
@@ -38,11 +39,10 @@ public class Adm{
     
     public void criarVeiculo(){        
         try{
-            int aux = getFreeId();
-            if(aux < 0){
-                throw new Exception("ID ocupado");
+            int id = getFreeId();
+            if (id <= -1){
+                throw new InvalidAttributeValueException();
             }
-            int id = aux;
             postionID[id] = true;
             System.out.println("---------Digite o Modelo do veiculo------------");
             String modelo = input.nextLine();
@@ -64,14 +64,15 @@ public class Adm{
             System.out.println("---------Digite o tipo do veiculo------------");
             String tipo = input.nextLine();
             //String dataVeiculo = sdf.format(new Date());
-            
+            Date data = new Date();
+
             if("Carro".equalsIgnoreCase(tipo)){
                 Double preco = price.getPrecoCarro();
                 String tipoCarro;
                 System.out.println("---------Digite o tipo do carro------------");
-                tipoCarro = input.nextLine();;
+                tipoCarro = input.nextLine();
 
-                veiculos.add(new Carro(id, modelo, marca, placa, tipo, cor, preco, null,tipoCarro));
+                veiculos.add(new Carro(id, modelo, marca, placa, tipo, cor, preco, data,tipoCarro));
                 qtdCarro +=1;
             }
             else if("Caminhao".equalsIgnoreCase(tipo)){
@@ -79,7 +80,7 @@ public class Adm{
                 Double carga;
                 System.out.println("---------Digite o tipo a Carga que o Caminhão suportar------------");
                 carga = input.nextDouble();
-                veiculos.add(new Caminhao(id, modelo, marca, placa, tipo, cor, preco,null,carga));
+                veiculos.add(new Caminhao(id, modelo, marca, placa, tipo, cor, preco,data,carga));
                 qtdCaminhao +=1;
             }
             else if("Moto".equalsIgnoreCase(tipo)){
@@ -87,42 +88,53 @@ public class Adm{
                 Double cilindrada;
                 cilindrada = input.nextDouble();
                 System.out.println("---------Digite a cilindrada da moto------------");
-                veiculos.add(new Moto(id, modelo, marca, placa, tipo, cor, preco, null,cilindrada));
+                veiculos.add(new Moto(id, modelo, marca, placa, tipo, cor, preco, data,cilindrada));
                 qtdMoto +=1;
             }
             qtdTotal = qtdCaminhao+qtdCarro+qtdMoto;
-        }catch(InputMismatchException e){
-            System.out.println("Tipo invalido");
+        }catch(InvalidAttributeValueException e ) {
+            System.out.println("Estacionamento cheio.");
+            System.exit(0);
         }
    
 }
-    public int getFreeId() {
+
+    private int getFreeId() {
         for(int i= 0; i < postionID.length; i++){
             if (this.postionID[i] != true)
                 return i;
-            else
-                return -1;
         }
-        
+        return -1;
     }
     public void removerVeiculo(){
+        Relatorio relatorio = new Relatorio();
         int id = input.nextInt();
         int retorno = busca.getIdVeiculos(qtdTotal, veiculos);
+
         if(retorno != -1){
-            if("Carro".equalsIgnoreCase(veiculos.get(id).getTipo()))
+            double valPHora;
+            Preco p = new Preco();
+            if("Carro".equalsIgnoreCase(veiculos.get(id).getTipo())){
                 qtdCarro-=1;
-             else if("Caminhao".equalsIgnoreCase((veiculos.get(id).getTipo())))
+                valPHora = p.getPrecoCarro();
+            }else if("Caminhao".equalsIgnoreCase((veiculos.get(id).getTipo()))) {
                 qtdCaminhao-=1;
-             else if("Moto".equalsIgnoreCase((veiculos.get(id).getTipo())))
+                valPHora = p.getPrecoCaminhao();
+            }else if("Moto".equalsIgnoreCase((veiculos.get(id).getTipo()))){
                 qtdMoto-=1;        
+                valPHora = p.getPrecoMoto();
+            }
             veiculos.remove(id);
+            double valorAPagar = Preco.calcularPagamento(veiculos.get(id).data, new Date(), valPHora);
+            System.out.printf("Total a pagar: %.2f\n", valorAPagar);
+            relatorio.addRelatorio(veiculos.get(id).getTipo(),valorAPagar);
             System.out.println("---------Veiculo removido com sucesso----------------");
         }else{
             System.out.println("-----------ID não cadastrado-----------------");
         }
      
     }
-    public void alterarVeiculos(){
+    public void alterarVeiculo(){
         try{
             System.out.println("-----------------Alterar veiculos----------------");
             System.out.println("--------------Digite um ID para modificar--------");
@@ -195,9 +207,11 @@ public class Adm{
         }catch(InputMismatchException e){
             System.out.println("Tipo invalido");
         }
-       
     }
+    public void saidaVeiculo(){
 
+    }
+    
     public ArrayList<Veiculo> getVeiculos() {
         return veiculos;
     }

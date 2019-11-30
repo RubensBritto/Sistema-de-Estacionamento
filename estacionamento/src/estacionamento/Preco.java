@@ -1,6 +1,8 @@
 package estacionamento;
 
 import java.util.Scanner;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public class Preco{
 	public Scanner input = new Scanner(System.in);
@@ -16,7 +18,7 @@ public class Preco{
 
 
     public void addPreco(){
-        System.out.println("Digite o valor do preço dos Caros");
+        System.out.println("Digite o valor do preço dos Carros");
         setPrecoCarro(input.nextDouble());
         System.out.println("Digite o valor do preço das motos");
         setPrecoMoto(input.nextDouble());
@@ -125,6 +127,25 @@ public class Preco{
 
     public void setQtdCaminhao(int qtdCaminhao) {
         this.qtdCaminhao = qtdCaminhao;
+    }
+
+    public static double calcularPagamento(Date entrou, Date saiu, double valPHora) {
+        int inicio, fim, tempoDecorrido;
+        inicio = getHoraFormatada(entrou, "mm");
+        fim = getHoraFormatada(saiu, "mm");
+        inicio += 60 * getHoraFormatada(entrou, "HH");
+        fim += 60 * getHoraFormatada(saiu, "HH");
+        tempoDecorrido = fim - inicio;
+        if (tempoDecorrido < 0) {
+            tempoDecorrido = (tempoDecorrido - 24 * 60) * -1;
+        }
+        double asw = tempoDecorrido/60 * valPHora;
+        return (tempoDecorrido < 60) ? valPHora : asw;
+    }
+
+    private static int getHoraFormatada(Date h, String formato) {
+        String fh = new SimpleDateFormat(formato).format(h);
+        return Integer.parseInt(fh);
     }
 
 }

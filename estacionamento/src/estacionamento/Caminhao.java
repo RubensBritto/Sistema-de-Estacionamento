@@ -1,11 +1,12 @@
 package estacionamento;
+import java.util.Date;
 
 public class Caminhao extends Veiculo {
 	
 	private Double carga;
 	
 	public Caminhao(int id, String modelo, String marca, String placa, String tipo, String cor, Double preco,
-			String dataVeiculo, Double carga) {
+			Date dataVeiculo, Double carga) {
 		super(id, modelo, marca, placa, tipo, cor, preco, dataVeiculo);
 		this.carga = carga;
 	}

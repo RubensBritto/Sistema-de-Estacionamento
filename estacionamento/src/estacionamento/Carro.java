@@ -7,7 +7,7 @@ public class Carro extends Veiculo{
 
 	
 	public Carro(int id, String modelo, String marca, String placa, String tipo, String cor, Double preco,
-			String dataVeiculo, String tipoCarro) {
+			Date dataVeiculo, String tipoCarro) {
 		super(id, modelo, marca, placa, tipo, cor, preco, dataVeiculo);
 		this.tipoCarro = tipoCarro;
 	}
@@ -21,8 +21,5 @@ public class Carro extends Veiculo{
 	public void setTipoCarro(String tipoCarro) {
 		this.tipoCarro = tipoCarro;
 	}
-	
-	public int valoresestacionamento(){
-		return 0;
-	}
+
 }

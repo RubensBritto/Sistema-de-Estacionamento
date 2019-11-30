@@ -1,6 +1,7 @@
 package estacionamento;
 import java.util.Scanner;
 import java.util.ArrayList;
+import estacionamento.Veiculo;
 
 
 public class Busca{
@@ -9,7 +10,7 @@ public class Busca{
         System.out.println("---------------------Digite o ID do veiculo--------------------");
         int id= input.nextInt();
         for(int aux = 0; aux < totalVeiculos; aux++){
-            if(id == veiculos.get(aux).getId()){
+            if(id == veiculo.get(aux).getId()){
                 return aux;
             }
             else{
