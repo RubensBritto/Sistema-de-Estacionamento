@@ -83,11 +83,18 @@ public abstract class Veiculo {
 		this.preco = preco;
 	}
 
-	public String getDataVeiculo() {
+	public Date getDataVeiculo() {
 		return dataVeiculo;
 	}
 
-	public void setDataVeiculo(String dataVeiculo) {
+	public void setDataVeiculo(Date dataVeiculo) {
 		this.dataVeiculo = dataVeiculo;
 	}
+
+	@Override
+	public String toString() {
+		return "[ID]--"+id+"\n[MODELO]--"+modelo+"\n[MARCA]--"+marca+"\n[PLACA]--"+placa+"\n[COR]--"+cor+"[TIPO]--"+tipo+
+				"\n[PRECO]--"+preco+"\n[Entrada]--"+data+"\n";
+	}
+
 }
