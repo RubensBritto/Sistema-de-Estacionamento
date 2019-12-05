@@ -20,4 +20,11 @@ public class Moto extends Veiculo {
 	public void setCilindrada(double cilindrada) {
 		this.cilindrada = cilindrada;
 	}
+
+	@Override
+	public String toString() {
+		return super.toString() +"[Cilindrada da Moto]--" + getCilindrada();
+	}
+
+	
 }

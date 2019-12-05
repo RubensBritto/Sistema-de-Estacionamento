@@ -25,4 +25,9 @@ public class Caminhao extends Veiculo {
 		this.carga = carga;
 	}
 
+	@Override
+	public String toString() {
+		return super.toString() +"[Carga do Caminhão]" + getCarga();
+	}
+
 }
