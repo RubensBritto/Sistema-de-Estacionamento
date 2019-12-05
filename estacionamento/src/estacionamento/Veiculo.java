@@ -93,7 +93,7 @@ public abstract class Veiculo {
 
 	@Override
 	public String toString() {
-		return "[ID]--"+id+"\n[MODELO]--"+modelo+"\n[MARCA]--"+marca+"\n[PLACA]--"+placa+"\n[COR]--"+cor+"[TIPO]--"+tipo+
+		return "[ID]--"+id+"\n[MODELO]--"+modelo+"\n[MARCA]--"+marca+"\n[PLACA]--"+placa+"\n[COR]--"+cor+"\n[TIPO]--"+tipo+
 				"\n[PRECO]--"+preco+"\n[Entrada]--"+data+"\n";
 	}
 

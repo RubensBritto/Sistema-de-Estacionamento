@@ -63,14 +63,17 @@ public class Menu{
             else if(escolha == 8){
                 System.out.println("------------------Mostrar estado atual--------------");
                 adm.estadoAtual(adm.veiculos);
+                start();
                
             }
             else if(escolha == 9){
                 System.out.println("-----------------Relatorio Financeiro-----------------------");
                 adm.printarRelatorio();
+                start();
             }
             else{
                 System.out.println("Digite uma opção valida");
+                start();
             }
         }catch(NumberFormatException e){
             System.out.println("O sistema espera um numero");
